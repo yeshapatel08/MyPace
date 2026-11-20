@@ -1,87 +1,437 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>MyPace — Your life, in your rhythm.</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
+
 <body>
+
 <div class="app-shell">
+
+  <!-- SIDEBAR -->
   <aside class="sidebar">
-    <a class="brand" href="/"><span class="brand-mark">m</span> MyPace<span class="brand-dot">.</span></a>
+
+    <a class="brand" href="/">
+      <span class="brand-mark">m</span>
+      MyPace<span class="brand-dot">.</span>
+    </a>
+
     <p class="side-label">WORKSPACE</p>
+
     <nav>
       <a class="nav active" href="#overview">⌂ &nbsp; Overview</a>
       <a class="nav" href="#tasks">☷ &nbsp; My tasks</a>
       <a class="nav" href="#schedule">▦ &nbsp; My schedule</a>
       <a class="nav" href="#activities">✳ &nbsp; Activities</a>
     </nav>
+
     <p class="side-label space-label">YOUR SPACE</p>
+
     <nav>
       <a class="nav" href="#personal">♡ &nbsp; Personal time</a>
       <a class="nav" href="#reading">▤ &nbsp; Reading corner</a>
     </nav>
+
     <div class="sidebar-bottom">
-      <div class="side-note">✳<p>Progress has its own pace. Make yours sustainable.</p></div>
-      <div class="profile"><span class="avatar">Y</span><span><b>Your space</b><small>Make it yours</small></span></div>
+
+      <div class="side-note">
+        ✳
+        <p>Progress has its own pace. Make yours sustainable.</p>
+      </div>
+
+      <div class="profile">
+        <span class="avatar">Y</span>
+
+        <span>
+          <b>Your space</b>
+          <small>Make it yours</small>
+        </span>
+      </div>
+
     </div>
+
   </aside>
 
+
+  <!-- MAIN DASHBOARD -->
   <main class="main" id="overview">
-    <header class="topbar"><span>Workspace <i>/</i> Overview</span><span id="today-label">Today　 ·　 Y</span></header>
+
+    <header class="topbar">
+      <span>Workspace <i>/</i> Overview</span>
+      <span id="today-label">Today</span>
+    </header>
+
+
+    <!-- WELCOME SECTION -->
     <section class="welcome">
-      <div><p class="eyebrow" id="welcome-date">YOUR DAY, AT A GLANCE</p>
-      <h1>A little structure.<br><em>A lot more life.</em></h1>
-      <p class="muted">Let's make space for what matters today.</p></div>
-      <div class="orbit" aria-hidden="true"><span>m</span></div>
+
+      <div>
+
+        <p class="eyebrow" id="welcome-date">
+          YOUR DAY, AT A GLANCE
+        </p>
+
+        <h1>
+          A little structure.<br>
+          <em>A lot more life.</em>
+        </h1>
+
+        <p class="muted">
+          Let's make space for what matters today.
+        </p>
+
+      </div>
+
+      <div class="orbit" aria-hidden="true">
+        <span>m</span>
+      </div>
+
     </section>
 
+
+    <!-- STATS -->
     <section class="stats">
-      <article class="stat"><label>YOUR TOP PRIORITIES</label><strong id="priority-count">00</strong><small>Small steps, meaningful progress</small></article>
-      <article class="stat"><label>TASKS COMPLETED</label><strong id="completed-count">00 / 00</strong><small id="completion-caption">Your day is still taking shape</small></article>
-      <article class="stat personal-stat"><label>ROOM FOR YOURSELF</label><strong>2.5 <small>hrs</small></strong><small>Personal time deserves a place</small></article>
+
+      <article class="stat">
+        <label>YOUR TOP PRIORITIES</label>
+        <strong id="priority-count">00</strong>
+        <small>Small steps, meaningful progress</small>
+      </article>
+
+      <article class="stat">
+        <label>TASKS COMPLETED</label>
+        <strong id="completed-count">00 / 00</strong>
+        <small id="completion-caption">
+          Your day is still taking shape
+        </small>
+      </article>
+
+      <article class="stat personal-stat">
+        <label>ROOM FOR YOURSELF</label>
+        <strong>♡</strong>
+        <small>Rest belongs in the plan, too.</small>
+      </article>
+
     </section>
 
+
+    <!-- TASKS AND SCHEDULE -->
     <section class="columns">
+
+
+      <!-- TASK PANEL -->
       <article class="panel" id="tasks">
-        <div class="panel-head"><div><p class="eyebrow">A CLEAR START</p><h2>Today's priorities</h2></div><button class="link-button" id="add-task-open">+ Add a task</button></div>
-        <div id="task-list"><div class="empty"><span>✳</span><b>Your list has room to grow.</b><p>Add a task when you're ready. No pressure to fill every minute.</p></div></div>
-        <div class="panel-foot"><span id="task-summary">Your tasks will appear here.</span><button class="quiet-button" id="clear-completed">Clear completed</button></div>
-      </article>
 
-      <article class="panel" id="schedule">
-        <div class="panel-head"><div><p class="eyebrow">A GENTLE PLAN</p><h2>Today's rhythm</h2></div><span class="pill">● YOUR DAY</span></div>
-        <div class="timeline">
-          <div class="time-row"><time>09:00</time><span class="dot green"></span><div><b>Morning lecture</b><small>College · Fixed commitment</small></div></div>
-          <div class="time-row"><time>11:00</time><span class="dot sage"></span><div><b>Focus time</b><small>Learning · Suggested block</small></div></div>
-          <div class="time-row"><time>13:00</time><span class="dot amber"></span><div><b>Lunch & reset</b><small>A pause is part of the plan</small></div></div>
-          <div class="time-row"><time>16:00</time><span class="dot blue"></span><div><b>Time for yourself</b><small>Protected personal time</small></div></div>
+        <div class="panel-head">
+
+          <div>
+            <p class="eyebrow">A CLEAR START</p>
+            <h2>Today's priorities</h2>
+          </div>
+
+          <button class="link-button" id="add-task-open">
+            + Add a task
+          </button>
+
         </div>
-        <p class="sample">Sample timeline — we'll connect this to your real calendar later.</p>
+
+
+        <div id="task-list">
+
+          <div class="empty">
+            <span>✳</span>
+
+            <b>Your list has room to grow.</b>
+
+            <p>
+              Add a task when you're ready.
+              No pressure to fill every minute.
+            </p>
+          </div>
+
+        </div>
+
+
+        <div class="panel-foot">
+
+          <span id="task-summary">
+            Your tasks will appear here.
+          </span>
+
+          <span class="save-note">
+            Saved on this device
+          </span>
+
+          <button class="quiet-button" id="clear-completed">
+            Clear completed
+          </button>
+
+        </div>
+
       </article>
+
+
+
+      <!-- SCHEDULE PANEL -->
+      <article class="panel" id="schedule">
+
+        <div class="panel-head">
+
+          <div>
+            <p class="eyebrow">A GENTLE PLAN</p>
+            <h2>Today's rhythm</h2>
+          </div>
+
+          <span class="pill">● YOUR DAY</span>
+
+        </div>
+
+
+        <div class="timeline">
+
+          <div class="time-row">
+            <time>09:00</time>
+            <span class="dot green"></span>
+
+            <div>
+              <b>Morning lecture</b>
+              <small>College · Fixed commitment</small>
+            </div>
+          </div>
+
+
+          <div class="time-row">
+            <time>11:00</time>
+            <span class="dot sage"></span>
+
+            <div>
+              <b>Focus time</b>
+              <small>Learning · Suggested block</small>
+            </div>
+          </div>
+
+
+          <div class="time-row">
+            <time>13:00</time>
+            <span class="dot amber"></span>
+
+            <div>
+              <b>Lunch & reset</b>
+              <small>A pause is part of the plan</small>
+            </div>
+          </div>
+
+
+          <div class="time-row">
+            <time>16:00</time>
+            <span class="dot blue"></span>
+
+            <div>
+              <b>Time for yourself</b>
+              <small>Protected personal time</small>
+            </div>
+          </div>
+
+        </div>
+
+        <p class="sample">
+          Sample timeline — we'll connect this to your real calendar later.
+        </p>
+
+      </article>
+
     </section>
 
+
+
+    <!-- PERSONAL TIME AND READING CORNER -->
     <section class="bottom">
-      <article class="quote" id="personal"><span>“</span><p>You don't have to do everything today. Just make a little room for what matters.</p><small>A NOTE FROM YOUR PACE</small></article>
-      <article class="reading" id="reading"><div class="book-icon">▤</div><div><p class="eyebrow">A LITTLE SOMETHING TO READ</p><h2>Curiosity needs room, too.</h2><p>We'll suggest a book that fits the kind of week you're having.</p><small>READING CORNER · COMING INTO FOCUS</small></div></article>
+
+
+      <!-- PERSONAL TIME -->
+      <article class="quote" id="personal">
+
+        <span>“</span>
+
+        <p>
+          You don't have to do everything today.
+          Just make a little room for what matters.
+        </p>
+
+        <small>A NOTE FROM YOUR PACE</small>
+
+      </article>
+
+
+
+      <!-- READING CORNER -->
+      <article class="reading" id="reading" aria-labelledby="reading-title">
+
+        <div class="book-icon" aria-hidden="true">
+          ▤
+        </div>
+
+        <div class="reading-content">
+
+          <div class="reading-topline">
+
+            <p class="eyebrow">
+              A LINE FROM THE LIBRARY
+            </p>
+
+            <span class="reading-day">
+              A THOUGHT TO KEEP
+            </span>
+
+          </div>
+
+
+          <h2 id="reading-title">
+            A little perspective, between everything else.
+          </h2>
+
+
+          <blockquote class="book-excerpt" id="book-excerpt">
+            “I declare after all there is no enjoyment like reading!”
+          </blockquote>
+
+
+          <p class="book-source" id="book-source">
+            <strong>Pride and Prejudice</strong>
+            <span>Jane Austen</span>
+          </p>
+
+
+          <div class="reading-bottom">
+
+            <small>SHORT EXCERPTS · REAL BOOKS</small>
+
+            <button
+              class="link-button"
+              id="another-thought"
+              type="button"
+            >
+              Another thought ↗
+            </button>
+
+          </div>
+
+        </div>
+
+      </article>
+
     </section>
-    <footer>MyPace. &nbsp; Your life, in your rhythm. <span>Make room for what matters.</span></footer>
+
+
+    <footer>
+      MyPace. &nbsp; Your life, in your rhythm.
+      <span>Make room for what matters.</span>
+    </footer>
+
   </main>
+
 </div>
 
+
+
+<!-- ADD TASK DIALOG -->
 <dialog id="task-dialog">
+
   <form id="task-form">
-    <div class="dialog-head"><div><p class="eyebrow">MAKE A LITTLE PLAN</p><h2>Add a task</h2></div><button type="button" id="dialog-close" class="close">×</button></div>
-    <label for="task-title">What would you like to do?</label><input id="task-title" name="title" placeholder="e.g. Review today's lecture" maxlength="90" required>
-    <div class="form-row"><div><label for="task-category">Category</label><select id="task-category" name="category"><option>Academics</option><option>Projects</option><option>Activities</option><option>Personal</option></select></div>
-    <div><label for="task-priority">Priority</label><select id="task-priority" name="priority"><option>Important</option><option selected>Normal</option><option>Whenever</option></select></div></div>
-    <label for="task-duration">Estimated time</label><select id="task-duration" name="duration"><option>15 min</option><option selected>30 min</option><option>1 hour</option><option>2 hours</option></select>
-    <div class="actions"><button type="button" class="quiet-button" id="dialog-cancel">Cancel</button><button class="primary" type="submit">Add to my day</button></div>
+
+    <div class="dialog-head">
+
+      <div>
+        <p class="eyebrow">MAKE A LITTLE PLAN</p>
+        <h2>Add a task</h2>
+      </div>
+
+      <button type="button" id="dialog-close" class="close">
+        ×
+      </button>
+
+    </div>
+
+
+    <label for="task-title">
+      What would you like to do?
+    </label>
+
+    <input
+      id="task-title"
+      name="title"
+      placeholder="e.g. Review today's lecture"
+      maxlength="90"
+      required
+    >
+
+
+    <div class="form-row">
+
+      <div>
+        <label for="task-category">Category</label>
+
+        <select id="task-category" name="category">
+          <option>Academics</option>
+          <option>Projects</option>
+          <option>Activities</option>
+          <option>Personal</option>
+        </select>
+      </div>
+
+
+      <div>
+        <label for="task-priority">Priority</label>
+
+        <select id="task-priority" name="priority">
+          <option>Important</option>
+          <option selected>Normal</option>
+          <option>Whenever</option>
+        </select>
+      </div>
+
+    </div>
+
+
+    <label for="task-duration">
+      Estimated time
+    </label>
+
+    <select id="task-duration" name="duration">
+      <option>15 min</option>
+      <option selected>30 min</option>
+      <option>1 hour</option>
+      <option>2 hours</option>
+    </select>
+
+
+    <div class="actions">
+
+      <button type="button" class="quiet-button" id="dialog-cancel">
+        Cancel
+      </button>
+
+      <button class="primary" type="submit">
+        Add to my day
+      </button>
+
+    </div>
+
   </form>
+
 </dialog>
+
+
 <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
 </body>
 </html>
